@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import ResourceCard from "@/components/ui/resource-card";
-import { Search, Filter, X } from "lucide-react";
+import { SearchInput } from "@/components/ui/search-input";
+import { Filter, X, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Resources = () => {
@@ -124,16 +124,13 @@ const Resources = () => {
         <div className="mb-8">
           <div className="flex flex-col lg:flex-row gap-4 mb-6">
             {/* Search */}
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-              <Input
-                type="text"
-                placeholder="Search topics, titles, or creators..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10"
-              />
-            </div>
+            <SearchInput
+              value={searchQuery}
+              onChange={setSearchQuery}
+              placeholder="Search topics, titles, or creators..."
+              className="flex-1"
+              onClear={() => setSearchQuery("")}
+            />
             
             {/* Filter Toggle (Mobile) */}
             <Button

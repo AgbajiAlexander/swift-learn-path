@@ -50,7 +50,10 @@ const Mentorship = () => {
     }
 
     // Simulate form submission
-    setIsSubmitted(true);
+    setTimeout(() => {
+      window.location.href = "/success/mentorship";
+    }, 500);
+    
     toast({
       title: "Request submitted successfully!",
       description: "We'll review and reach out within a few days."

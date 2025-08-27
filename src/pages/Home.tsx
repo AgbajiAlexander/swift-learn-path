@@ -206,17 +206,25 @@ const Home = () => {
             Get the latest learning resources and community updates
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <form 
+            onSubmit={(e) => {
+              e.preventDefault();
+              // Simulate newsletter signup
+              window.location.href = "/success/newsletter";
+            }}
+            className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+          >
             <Input 
               type="email" 
               placeholder="Enter your email"
               className="flex-1"
+              required
             />
             <Button type="submit">
               <Mail className="mr-2 h-4 w-4" />
               Get Updates
             </Button>
-          </div>
+          </form>
           <p className="text-sm text-muted-foreground mt-4">
             Occasional updates. Unsubscribe anytime.
           </p>
